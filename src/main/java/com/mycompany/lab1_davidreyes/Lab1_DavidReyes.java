@@ -1,12 +1,14 @@
 package com.mycompany.lab1_davidreyes;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
 public class Lab1_DavidReyes {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         int opcion;
         Scanner l = new Scanner(System.in);
         char resp = 's';
@@ -27,13 +29,17 @@ public class Lab1_DavidReyes {
                     String prin;
                     String[] fecha;
                     System.out.println("Ingrese la cadena");
+                    l.nextLine();
                     prin = l.nextLine();
                     fecha = prin.split(",");
-                    SimpleDateFormat formt = new SimpleDateFormat("dd/mm/yyyy");
+                    DateFormat formt = new SimpleDateFormat("dd/mm/yyyy");
+                    String base;
                     Date fech;
-                    prin = "";
                     for (int i = 0; i < fecha.length; i++) {
-                        System.out.print(fecha[i]);
+                        if(fecha[i].contains("/")){
+                          fech = formt.parse(fecha[i]);  
+                            System.out.println(fech);
+                        }
                     }
 
                     break;
