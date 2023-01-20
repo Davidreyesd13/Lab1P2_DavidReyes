@@ -1,6 +1,8 @@
 
 package com.mycompany.lab1_davidreyes;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 
@@ -27,8 +29,12 @@ public class Lab1_DavidReyes {
                 l.next();
                 prin=l.nextLine();
                 fecha=prin.split(",");
+                Date fech;
+                prin="";
                 for (int i = 0; i < fecha.length; i++) {
-                    
+                    if(fecha[i].contains("--/--/----")){
+                       
+                    }
                 }
                 
                 break;
@@ -46,11 +52,12 @@ public class Lab1_DavidReyes {
     
     public static void hanoi(int n, int origen, int aux,int destino){
         if (n==1) {
-            System.out.println("Mover disco"+n+"de"+origen+"a"+destino);
+            System.out.println("Mover disco "+n+" de "+origen+" a "+destino);
+            return;
         }else{
             hanoi(n-1,origen,destino,aux);
         }
-        System.out.println("Mover disco"+n+"de"+origen+"a"+destino);
-            
+        System.out.println("Mover disco "+n+" de "+origen+" a "+destino);
+           hanoi(n-1,aux,origen,destino); 
         }
 }
